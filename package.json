@@ -4,9 +4,9 @@
 	"license": "GPL-2.0-only",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:hypeJunctionPro/Elgg3-hypeStripPayments.git",
+		"url": "git@github.com:hypeJunctionPro/Elgg3-hypeStripePayments.git",
 		"owner": "hypeJunctionPro",
-		"repo": "Elgg3-hypeStripPayments"
+		"repo": "Elgg3-hypeStripePayments"
 	},
 	"dependencies": {
 		"curlrequest": "^1.0.1",
