@@ -1,0 +1,29 @@
+{
+	"name": "hypejunction/hypestripepayments",
+	"type": "elgg-plugin",
+	"description": "Stripe client for Elgg",
+	"homepage": "http://hypejunction.com",
+	"keywords": [
+        "elgg", "plugin", "stripe", "payments"
+	],
+	"license": "GPL-2.0-only",
+	"authors": [
+		{
+			"name": "Ismayil Khayredinov",
+			"email": "info@hypejunction.com"
+		}
+	],
+    "extra": {
+        "installer-name": "hypeStripePayments"
+    },
+	"require": {
+		"php": ">=7.0",
+		"composer/installers": "~1.0",
+		"stripe/stripe-php": "^6.4"
+	},
+	"autoload": {
+		"psr-0": {
+			"": "classes/"
+		}
+	}
+}

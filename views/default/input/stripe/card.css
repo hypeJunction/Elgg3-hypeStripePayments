@@ -1,0 +1,16 @@
+[data-stripe] .card-element {
+	border: 1px solid $(border-color-mild);
+	padding: 1rem;
+	border-radius: 3px;
+	background: #fff;
+}
+
+[data-stripe] .card-errors {
+	@include elgg-message($(state-danger-font-color), $(state-danger-background-color), $(state-danger-border-color));
+	margin-top: 0.5rem;
+	padding: 0.25rem 0.5rem;
+	font-size: 0.75rem;
+	font-weight: 600;
+	border-width: 1px;
+	border-style: solid;
+}
