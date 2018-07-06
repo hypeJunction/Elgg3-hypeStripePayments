@@ -1,3 +1,13 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/compare/1.1.0...1.1.1) (2018-07-06)
+
+
+### Bug Fixes
+
+* **forms:** use ajax Form api to promise stripe token ([3128c22](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/commit/3128c22))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/compare/1.0.1...1.1.0) (2018-06-29)
 
