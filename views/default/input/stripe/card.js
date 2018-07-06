@@ -1,9 +1,10 @@
 define(function (require) {
 
 	var elgg = require('elgg');
+	var $ = require('jquery');
 	var Stripe = require('stripe');
 	var Ajax = require('elgg/Ajax');
-	var spinner = require('elgg/spinner');
+	var Form = require('ajax/Form');
 
 	var api = {
 		init: function (id) {
@@ -25,41 +26,32 @@ define(function (require) {
 			});
 
 			var $form = $elem.closest('form');
+			var form = new Form($form);
 
-			$form.uniqueId();
-
-			$(document).on('submit', '#' + $form.attr('id'), function(e) {
-
-				if (!$(this).has('[data-stripe]')) {
-					return;
+			form.onSubmit(function (resolve, reject) {
+				if (!$form.has('[data-stripe]')) {
+					return resolve();
 				}
 
-				e.preventDefault();
+				var $token = $form.find('[name="stripe_token"]');
+				if ($token.val()) {
+					return resolve();
+				}
 
 				var cardData = api.getCardData($form);
-				
-				$('[type="submit"]', $form).prop('disabled', true);
-
-				spinner.start(elgg.echo('payments:stripe:card:processing'));
 
 				stripe.createToken(card, cardData).then(function (result) {
-					var $token = $form.find('[name="stripe_token"]');
-
 					if (result.token || !$token.data('required')) {
 						$token.val(result.token.id);
-						$form.get(0).submit();
+						return resolve();
 					} else {
-						$('[type="submit"]', $form).prop('disabled', true);
 						$elem.find('.card-errors').removeClass('hidden').text(result.error.message);
+						return reject(new Error(result.error.message));
 					}
-
-					spinner.stop();
 				});
-
-				return false;
 			});
 		},
-		getCardData: function($form) {
+		getCardData: function ($form) {
 			var ajax = new Ajax(false);
 			var formData = ajax.objectify($form);
 
@@ -74,7 +66,7 @@ define(function (require) {
 				'address_country': 'address[country_code]'
 			};
 
-			$.each(props, function(index, value) {
+			$.each(props, function (index, value) {
 				if (formData.has(value)) {
 					cardData[index] = formData.get(value);
 				}
