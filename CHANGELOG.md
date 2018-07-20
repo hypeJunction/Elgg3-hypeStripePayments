@@ -1,3 +1,13 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/compare/1.1.1...1.2.0) (2018-07-20)
+
+
+### Features
+
+* **forms:** add US bank account input ([6d6091a](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/commit/6d6091a))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/compare/1.1.0...1.1.1) (2018-07-06)
 
