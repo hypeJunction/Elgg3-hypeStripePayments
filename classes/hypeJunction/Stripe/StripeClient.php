@@ -2,20 +2,17 @@
 
 namespace hypeJunction\Stripe;
 
+use Elgg\Di\ServiceFacade;
 use ElggUser;
 use Stripe\Account;
-use Stripe\ApiResource;
 use Stripe\BalanceTransaction;
-use Stripe\Card;
 use Stripe\Charge;
 use Stripe\CountrySpec;
 use Stripe\Customer;
-use Stripe\Error\Api as ApiError;
 use Stripe\Invoice;
 use Stripe\Plan;
 use Stripe\Refund;
 use Stripe\Stripe;
-use Stripe\StripeObject;
 use Stripe\Subscription;
 
 /**
@@ -25,10 +22,20 @@ use Stripe\Subscription;
  */
 class StripeClient {
 
+	use ServiceFacade;
+
 	const API_VERSION = '2018-02-28';
 
 	/**
+	 * {@inheritdoc}
+	 */
+	public static function name() {
+		return 'stripe';
+	}
+
+	/**
 	 * Configure the client
+	 * @return void
 	 */
 	public function setup() {
 

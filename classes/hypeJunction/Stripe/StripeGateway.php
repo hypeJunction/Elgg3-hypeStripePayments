@@ -2,6 +2,7 @@
 
 namespace hypeJunction\Stripe;
 
+use Elgg\Di\ServiceFacade;
 use hypeJunction\Payments\Amount;
 use hypeJunction\Payments\CreditCard;
 use hypeJunction\Payments\GatewayInterface;
@@ -12,6 +13,8 @@ use Stripe\Error\Base;
 use Stripe\Error\Card;
 
 class StripeGateway implements GatewayInterface {
+
+	use ServiceFacade;
 
 	/**
 	 * @var StripeClient
@@ -25,6 +28,13 @@ class StripeGateway implements GatewayInterface {
 	 */
 	public function __construct(StripeClient $client) {
 		$this->client = $client;
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public static function name() {
+		return 'payments.gateways.stripe';
 	}
 
 	/**

@@ -36,8 +36,7 @@ class DigestWebhook {
 			$sig_header = _elgg_services()->request->server->get("HTTP_STRIPE_SIGNATURE");
 			$event = null;
 
-			$svc = elgg()->stripe;
-			/* @var $svc \hypeJunction\Stripe\StripeClient */
+			$svc = StripeClient::instance();
 
 			try {
 				$event = \Stripe\Webhook::constructEvent(

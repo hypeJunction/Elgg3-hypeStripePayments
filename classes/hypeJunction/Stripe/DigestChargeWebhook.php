@@ -39,8 +39,7 @@ class DigestChargeWebhook {
 
 			/* @var $transactions \hypeJunction\Payments\Transaction[] */
 
-			$adapter = elgg()->{'payments.gateways.stripe'};
-			/* @var $adapter \hypeJunction\Stripe\StripeGateway */
+			$adapter = StripeGateway::instance();
 
 			foreach ($transactions as $transaction) {
 				$adapter->updateTransactionStatus($transaction);

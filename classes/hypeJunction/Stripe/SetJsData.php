@@ -19,7 +19,7 @@ class SetJsData {
 	public function __invoke(Hook $hook) {
 		$value = $hook->getValue();
 
-		$svc = elgg()->stripe;
+		$svc = StripeClient::instance();
 		/* @var $svc \hypeJunction\Stripe\StripeClient */
 
 		$value['stripe_pk'] = $svc->public_key;

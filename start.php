@@ -6,7 +6,7 @@ return function () {
 
 	elgg_register_event_handler('init', 'system', function () {
 
-		elgg()->payments->registerGateway(elgg()->{'payments.gateways.stripe'});
+		elgg()->payments->registerGateway(\hypeJunction\Stripe\StripeGateway::instance());
 
 		elgg_register_plugin_hook_handler('elgg.data', 'page', \hypeJunction\Stripe\SetJsData::class);
 
