@@ -29,6 +29,8 @@ return function () {
 
 		elgg_register_plugin_hook_handler('register', 'menu:page', \hypeJunction\Stripe\PageMenu::class);
 
+		elgg_register_plugin_hook_handler('payments:sources', 'user', \hypeJunction\Stripe\SetUserPaymentSources::class);
+
 	});
 
 };

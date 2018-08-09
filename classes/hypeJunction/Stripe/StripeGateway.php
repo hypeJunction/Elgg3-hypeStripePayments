@@ -51,7 +51,10 @@ class StripeGateway implements GatewayInterface {
 
 		$transaction->setPaymentMethod('stripe');
 
-		$source = elgg_extract('stripe_token', $params);
+		$source = elgg_extract('stripe_source', $params);
+		if (!$source) {
+			$source = elgg_extract('stripe_token', $params);
+		}
 
 		if (!$source) {
 			$transaction->setStatus(TransactionInterface::STATUS_FAILED);

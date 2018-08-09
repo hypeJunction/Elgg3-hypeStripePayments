@@ -58,10 +58,18 @@ echo elgg_view_field([
 You can then retrieve the value of the Stripe token in your action:
 
 ```php
-$token = get_input('stripe_token');
-$address = get_input('address');
-$name = get_input('cardholder');
+$payment_method = get_input('payment_method');
+list($gateway, $source_id) = explode('::', $payment_method);
 
-// Use stripe API to create a new card object
-// or use the token as the source of the payment
+if ($gateway == 'stripe' && $source_id) {
+    // Use $source_id to create a charge
+    
+} else {
+   $token = get_input('stripe_token');
+   $address = get_input('address');
+   $name = get_input('cardholder');
+   
+   // Use stripe API to create a new card object
+   // or use the token as the source of the payment
+}
 ```
