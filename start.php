@@ -15,7 +15,7 @@ return function () {
 			'exports' => 'window.Stripe',
 		]);
 
-		elgg_extend_view('elgg.css', 'input/stripe/card.css');
+		elgg_extend_view('components.css', 'input/stripe/card.css');
 
 		elgg_register_ajax_view('payments/method/stripe/form');
 
