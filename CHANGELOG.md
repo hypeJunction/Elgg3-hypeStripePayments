@@ -1,3 +1,13 @@
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/compare/1.1.1...1.1.2) (2018-11-12)
+
+
+### Bug Fixes
+
+* **css:** extend components stylesheet ([6896888](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/commit/6896888))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/compare/1.1.0...1.1.1) (2018-07-06)
 
