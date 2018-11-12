@@ -1,7 +1,6 @@
 <?php
 
-$stripe = elgg()->stripe;
-/* @var $stripe \hypeJunction\Stripe\StripeClient */
+$stripe = \hypeJunction\Stripe\StripeClient::instance();
 
 $account = $stripe->getAccount();
 if (!$account instanceof \Stripe\Account) {

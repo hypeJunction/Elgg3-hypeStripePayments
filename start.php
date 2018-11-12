@@ -6,7 +6,7 @@ return function () {
 
 	elgg_register_event_handler('init', 'system', function () {
 
-		elgg()->payments->registerGateway(elgg()->{'payments.gateways.stripe'});
+		elgg()->payments->registerGateway(\hypeJunction\Stripe\StripeGateway::instance());
 
 		elgg_register_plugin_hook_handler('elgg.data', 'page', \hypeJunction\Stripe\SetJsData::class);
 
@@ -15,7 +15,7 @@ return function () {
 			'exports' => 'window.Stripe',
 		]);
 
-		elgg_extend_view('components.css', 'input/stripe/card.css');
+		elgg_extend_view('elements/forms.css', 'input/stripe/card.css');
 
 		elgg_register_ajax_view('payments/method/stripe/form');
 
@@ -28,6 +28,8 @@ return function () {
 		elgg_register_plugin_hook_handler('charge.updated', 'stripe', \hypeJunction\Stripe\DigestChargeWebhook::class);
 
 		elgg_register_plugin_hook_handler('register', 'menu:page', \hypeJunction\Stripe\PageMenu::class);
+
+		elgg_register_plugin_hook_handler('payments:sources', 'user', \hypeJunction\Stripe\SetUserPaymentSources::class);
 
 	});
 

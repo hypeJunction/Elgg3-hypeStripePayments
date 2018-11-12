@@ -38,7 +38,7 @@ define(function (require) {
 					return resolve();
 				}
 
-				var cardData = api.getCardData($form);
+				var cardData = api.getCardData($form, $elem.data('addressInputName'));
 
 				stripe.createToken(card, cardData).then(function (result) {
 					if (result.token || !$token.data('required')) {
@@ -51,19 +51,21 @@ define(function (require) {
 				});
 			});
 		},
-		getCardData: function ($form) {
+		getCardData: function ($form, address_input_name) {
+			var address_input_name = address_input_name || 'address';
+
 			var ajax = new Ajax(false);
 			var formData = ajax.objectify($form);
 
 			var cardData = {};
 			var props = {
 				'name': 'cardholder',
-				'address_line1': 'address[street_address]',
-				'address_line2': 'address[extended_address]',
-				'address_city': 'address[locality]',
-				'address_state': 'address[region]',
-				'address_zip': 'address[postal_code]',
-				'address_country': 'address[country_code]'
+				'address_line1': address_input_name + '[street_address]',
+				'address_line2': address_input_name + '[extended_address]',
+				'address_city': address_input_name + '[locality]',
+				'address_state': address_input_name + '[region]',
+				'address_zip': address_input_name + '[postal_code]',
+				'address_country': address_input_name + '[country_code]'
 			};
 
 			$.each(props, function (index, value) {

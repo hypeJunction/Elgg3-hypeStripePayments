@@ -25,9 +25,7 @@ class RefundTransaction {
 		}
 
 		if ($transaction->payment_method == 'stripe') {
-			$adapter = elgg()->{'payments.gateways.stripe'};
-			/* @var $adapter \hypeJunction\Stripe\StripeGateway */
-
+			$adapter = StripeGateway::instance();
 			return $adapter->refund($transaction);
 		}
 	}

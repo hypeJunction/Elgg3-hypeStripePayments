@@ -26,8 +26,7 @@ class CheckoutAction {
 				throw new EntityNotFoundException(elgg_echo('payments:error:not_found'));
 			}
 
-			$stripe_adapter = elgg()->{'payments.gateways.stripe'};
-			/* @var $stripe_adapter \hypeJunction\Stripe\StripeGateway */
+			$stripe_adapter = StripeGateway::instance();
 
 			return $stripe_adapter->pay($transaction, $request->getParams());
 		});

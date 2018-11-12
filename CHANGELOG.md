@@ -1,10 +1,30 @@
-<a name="1.1.2"></a>
-## [1.1.2](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/compare/1.1.1...1.1.2) (2018-11-12)
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/compare/1.2.1...1.3.0) (2018-08-09)
 
 
-### Bug Fixes
+### Features
 
-* **css:** extend components stylesheet ([6896888](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/commit/6896888))
+* **sources:** add existing user cards as a payment method option ([08b35eb](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/commit/08b35eb))
+
+
+
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/compare/1.2.0...1.2.1) (2018-07-20)
+
+
+### Features
+
+* **services:** use service facades ([c206ef7](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/commit/c206ef7))
+
+
+
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/compare/1.1.1...1.2.0) (2018-07-20)
+
+
+### Features
+
+* **forms:** add US bank account input ([6d6091a](https://github.com/hypeJunctionPro/Elgg3-hypeStripePayments/commit/6d6091a))
 
 
 

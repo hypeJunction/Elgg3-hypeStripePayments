@@ -56,4 +56,8 @@ return [
 	'payments:stripe:pay:paid' => 'Your payment was successfully received',
 	'payments:stripe:pay:failed' => 'Payment has failed',
 	'payments:stripe:pay:payment_pending' => 'The charge was successful and the payment is pending',
+
+	'payments:stripe:account_holder_name' => 'Account Holder Name',
+	'payments:stripe:routing_number' => 'Routing Number',
+	'payments:stripe:account_number' => 'Account Number',
 ];

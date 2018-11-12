@@ -2,6 +2,7 @@
 
 namespace hypeJunction\Stripe;
 
+use Elgg\Di\ServiceFacade;
 use hypeJunction\Payments\Amount;
 use hypeJunction\Payments\CreditCard;
 use hypeJunction\Payments\GatewayInterface;
@@ -12,6 +13,8 @@ use Stripe\Error\Base;
 use Stripe\Error\Card;
 
 class StripeGateway implements GatewayInterface {
+
+	use ServiceFacade;
 
 	/**
 	 * @var StripeClient
@@ -30,6 +33,13 @@ class StripeGateway implements GatewayInterface {
 	/**
 	 * {@inheritdoc}
 	 */
+	public static function name() {
+		return 'payments.gateways.stripe';
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
 	public function id() {
 		return 'stripe';
 	}
@@ -41,7 +51,10 @@ class StripeGateway implements GatewayInterface {
 
 		$transaction->setPaymentMethod('stripe');
 
-		$source = elgg_extract('stripe_token', $params);
+		$source = elgg_extract('stripe_source', $params);
+		if (!$source) {
+			$source = elgg_extract('stripe_token', $params);
+		}
 
 		if (!$source) {
 			$transaction->setStatus(TransactionInterface::STATUS_FAILED);

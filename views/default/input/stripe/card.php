@@ -25,6 +25,7 @@ $config = elgg_extract('config', $vars, []);
 $config['hidePostalCode'] = elgg_extract('hide_postal_code', $vars, true);
 
 $attrs['data-card'] = json_encode($config);
+$attrs['data-address-input-name'] = elgg_extract('address_input_name', $vars, 'address');
 
 echo elgg_format_element('div', $attrs, $card . $errors . $hidden);
 ?>
